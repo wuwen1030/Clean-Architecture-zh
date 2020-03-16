@@ -26,7 +26,7 @@ Let’s examine each of these concepts in turn.
 
 The reason encapsulation is cited as part of the definition of OO is that OO languages provide easy and effective encapsulation of data and function. As a result, a line can be drawn around a cohesive set of data and functions. Outside of that line, the data is hidden and only some of the functions are known. We see this concept in action as the private data members and the public member functions of a class.
 
-> 导致封装这个概念经常被引用为面向对象编程定义的一部分。通过釆用封装特性，我们可以把一组相关联的数据和函数圈起来，便圈外血的代码只能看见部分函数，数据则完全不可见。譬如在实际应用中，类（class）中的公共函数和私有成员变量就是这样。
+> 导致封装这个概念经常被引用为面向对象编程定义的一部分。通过釆用封装特性，我们可以把一组相关联的数据和函数圈起来，使圈外面的代码只能看见部分函数，数据则完全不可见。譬如在实际应用中，类（class）中的公共函数和私有成员变量就是这样。
 
 This idea is certainly not unique to OO. Indeed, we had perfect encapsulation in C. Consider this simple C program:
 
@@ -211,7 +211,7 @@ This kind of trickery was a common practice4 of programmers prior to the advent 
 
 Thus we might say that we had a kind of inheritance long before OO languages were invented. That statement wouldn’t quite be true, though. We had a trick, but it’s not nearly as convenient as true inheritance. Moreover, multiple inheritance is a considerably more difficult to achieve by such trickery.
 
-> 因此，我们可以说，早在面向对象编程语言被发明之前，对继承性的支持就已经存在很久了。当然了，这种支持用了一些投机取巧的手段，并不像如今的继昼：样便利易用，而且，多重继承（multiple inheritance）如果还想用这种方法来实现，就更难了。
+> 因此，我们可以说，早在面向对象编程语言被发明之前，对继承性的支持就已经存在很久了。当然了，这种支持用了一些投机取巧的手段，并不像如今的继承这样便利易用，而且，多重继承（multiple inheritance）如果还想用这种方法来实现，就更难了。
 
 Note also that in main.c, I was forced to cast the NamedPoint arguments to Point. In a real OO language, such upcasting would be implicit.
 
