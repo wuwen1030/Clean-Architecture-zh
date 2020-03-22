@@ -6,9 +6,7 @@
 
 <img src="./docs/cover.jpg" width=24% />
 
-## 前言
-
-## Index
+## 目录
 
 - [第一部分 概述](docs/part1.md)
 - [第 1 章 设计与架构究竟是什么](docs/ch1.md)
@@ -80,10 +78,16 @@ yarn global add vuepress
 git clone https://github.com/gdut-yy/Clean-Architecture-zh.git
 cd Clean-Architecture-zh/
 yarn docs:dev
-
-# 本地阅读
-http://localhost:8080/doc-cleanarch/
 ```
+
+## Contributors
+
+<table>
+  <tr>
+    <td align="center"><a href="https://gdut-yy.github.io/"><img src="https://avatars2.githubusercontent.com/u/33390928?s=460&v=4" width="100px;" /><br /><sub><b>gdut-yy</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/qisixian"><img src="https://avatars1.githubusercontent.com/u/24975483?s=460&u=a73b906e48207589087676dfb567207ae93b66ac&v=4" width="100px;" /><br /><sub><b>qisixian</b></sub></a><br /></td>
+  </tr>
+</table>
 
 ## License
 
