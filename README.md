@@ -86,6 +86,7 @@ yarn docs:dev
   <tr>
     <td align="center"><a href="https://gdut-yy.github.io/"><img src="https://avatars2.githubusercontent.com/u/33390928?s=460&v=4" width="100px;" /><br /><sub><b>gdut-yy</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/qisixian"><img src="https://avatars1.githubusercontent.com/u/24975483?s=460&u=a73b906e48207589087676dfb567207ae93b66ac&v=4" width="100px;" /><br /><sub><b>qisixian</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/latavin243"><img src="https://avatars0.githubusercontent.com/u/16208315?s=460&u=c4a46e233583bc687fa59c863dd0f144e9f5664b&v=4" width="100px;" /><br /><sub><b>qguo</b></sub></a><br /></td>
   </tr>
 </table>
 
