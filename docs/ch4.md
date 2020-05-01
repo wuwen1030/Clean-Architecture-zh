@@ -70,7 +70,7 @@ Iteration was a bit different. To prove an iteration correct, Dijkstra had to us
 
 Such proofs were laborious and complex—but they were proofs. With their development, the idea that a Euclidean hierarchy of theorems could be constructed seemed reachable.
 
-> 尽管这些证明过程本身非常复杂和烦琐，但确实是完备的。有了这样的证明过程，用欧几里得层级构造定理的方式来验证程序正确性的目标，貌似近在咫尺了。
+> 尽管这些证明过程本身非常复杂和繁琐，但确实是完备的。有了这样的证明过程，用欧几里得层级构造定理的方式来验证程序正确性的目标，貌似近在咫尺了。
 
 ## A HARMFUL PROCLAMATION goto 是有害的
 
