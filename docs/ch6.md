@@ -2,7 +2,7 @@
 
 ![](./un/CH-UN06.jpg)
 
-In many ways, the concepts of functional programming predate programming itself. This paradigm is strongly based on the l-calculus invented by Alonzo Church in the 1930s.
+In many ways, the concepts of functional programming predate programming itself. This paradigm is strongly based on the λ-calculus invented by Alonzo Church in the 1930s.
 
 > 函数式编程所依赖的原理，在很多方而其实是早于编程本身出现的。因为函数式编程这种范式强烈依赖于 Alonzo Church 在 20 世纪 30 年代发明的 λ 演算。
 
@@ -44,9 +44,9 @@ If you don’t know Lisp, then this might look a little strange. So let me refor
       (range)))) ;___________ of Integers
 ```
 
-It should be clear that println, take, map, and range are all functions. In Lisp, you call a function by putting it in parentheses. For example, (range) calls the range function.
+It should be clear that `println`, `take`, `map`, and `range` are all functions. In Lisp, you call a function by putting it in parentheses. For example, `(range)` calls the range function.
 
-> 很明显，这里的 println、take、map 和 range 都是函数。在 LISP 中，函数是通过括号来调用的，例如（range）表达式就是在调用 range 函数。
+> 很明显，这里的 `println`、`take`、`map` 和 `range` 都是函数。在 LISP 中，函数是通过括号来调用的，例如 `(range)` 表达式就是在调用 `range` 函数。
 
 The expression `(fn [x] (* x x))` is an anonymous function that calls the multiply function, passing its input argument in twice. In other words, it computes the square of its input.
 
@@ -56,17 +56,17 @@ Looking at the whole thing again, it’s best to start with the innermost functi
 
 > 现在让我们回过头再看一下这整句代码，从最内侧的函数调用开始：
 
-- The range function returns a never-ending list of integers starting with 0.
-- This list is passed into the map function, which calls the anonymous squaring function on each element, producing a new never-ending list of all the squares.
-- The list of squares is passed into the take function, which returns a new list with only the first 25 elements.
-- The println function prints its input, which is a list of the first 25 squares of integers.
+- The `range` function returns a never-ending list of integers starting with 0.
+- This list is passed into the `map` function, which calls the anonymous squaring function on each element, producing a new never-ending list of all the squares.
+- The list of squares is passed into the `take` function, which returns a new list with only the first 25 elements.
+- The `println` function prints its input, which is a list of the first 25 squares of integers.
 
 ---
 
-> - range 函数会返回一个从 0 开始的整数无穷列表。
-> - 然后该列表会被传入 map 函数，并针对列表中的每个元素，调用求平方值的匿名函数，产生了一个无穷多的、包含平方值的列表。
-> - 接着再将这个列表传入 take 函数，后者会返回一个仅包含前 25 个元素的 新列表。
-> - println 函数将它的参数输出，该参数就是上面这个包含了 25 个平方值的 列表。
+> - `range` 函数会返回一个从 0 开始的整数无穷列表。
+> - 然后该列表会被传入 `map` 函数，并针对列表中的每个元素，调用求平方值的匿名函数，产生了一个无穷多的、包含平方值的列表。
+> - 接着再将这个列表传入 `take` 函数，后者会返回一个仅包含前 25 个元素的 新列表。
+> - `println` 函数将它的参数输出，该参数就是上面这个包含了 25 个平方值的 列表。
 
 If you find yourself terrified by the concept of never-ending lists, don’t worry. Only the first 25 elements of those never-ending lists are actually created. That’s because no element of a never-ending list is evaluated until it is accessed.
 
@@ -118,34 +118,34 @@ Since mutating state exposes those components to all the problems of concurrency
 
 > 由于状态的修改会导致一系列并发问题的产生，所以我们通常会采用某种事务型内存来保护可变变量，避免同步更新和竞争状态的发生。
 
-Transactional memory simply treats variables in memory the same way a database treats records on disk.1 It protects those variables with a transaction- or retry-based scheme.
+Transactional memory simply treats variables in memory the same way a database treats records on disk.[<sup>1</sup>](#footnote-1) It protects those variables with a transaction- or retry-based scheme.
 
-> 事务型内存基本上与数据库保护磁盘数据的方式 1 类似，通常釆用的是事务或者重试机制。
+> 事务型内存基本上与数据库保护磁盘[<sup>1</sup>](#footnote-1)数据的方式类似，通常釆用的是事务或者重试机制。
 
-A simple example of this approach is Clojure’s atom facility:
+A simple example of this approach is Clojure’s `atom` facility:
 
-> 下面我们可以用 Clojure 中的 atom 机制来写一个简单的例子：
+> 下面我们可以用 Clojure 中的 `atom` 机制来写一个简单的例子：
 
 ```clojure
 (def counter (atom 0)) ; initialize counter to 0
 (swap! counter inc)    ; safely increment counter.
 ```
 
-In this code, the counter variable is defined as an atom. In Clojure, an atom is a special kind of variable whose value is allowed to mutate under very disciplined conditions that are enforced by the swap! function.
+In this code, the `counter` variable is defined as an `atom`. In Clojure, an `atom` is a special kind of variable whose value is allowed to mutate under very disciplined conditions that are enforced by the `swap!` function.
 
-> 在这段代码中，counter 变量被定义为 atom 类型。在 Clojure 中，atom 是一类特殊的变量，它被允许在 swap!函数定义的严格条件下进行更改。
+> 在这段代码中，`counter` 变量被定义为 `atom` 类型。在 Clojure 中，`atom` 是一类特殊的变量，它被允许在 `swap!` 函数定义的严格条件下进行更改。
 
-The swap! function, shown in the preceding code, takes two arguments: the atom to be mutated, and a function that computes the new value to be stored in the atom. In our example code, the counter atom will be changed to the value computed by the inc function, which simply increments its argument.
+The `swap!` function, shown in the preceding code, takes two arguments: the `atom` to be mutated, and a function that computes the new value to be stored in the atom. In our example code, the `counter` `atom` will be changed to the value computed by the `inc` function, which simply increments its argument.
 
-> 至于 swap! 函数，如同上面代码所写，它需要两个参数：一个是被用来修改的 atom 类型实例，另一个是用来计算新值的函数。在上面的代码中，inc 函数会将参数加 1 并存入 counter 这个 atom 实例。
+> 至于 `swap!` 函数，如同上面代码所写，它需要两个参数：一个是被用来修改的 `atom` 类型实例，另一个是用来计算新值的函数。在上面的代码中，`inc` 函数会将参数加 1 并存入 `counter` 这个 `atom` 实例。
 
-The strategy used by swap! is a traditional compare and swap algorithm. The value of counter is read and passed to inc. When inc returns, the value of counter is locked and compared to the value that was passed to inc. If the value is the same, then the value returned by inc is stored in counter and the lock is released. Otherwise, the lock is released, and the strategy is retried from the beginning.
+The strategy used by `swap!` is a traditional compare and swap algorithm. The value of `counter` is read and passed to `inc`. When `inc` returns, the value of `counter` is locked and compared to the value that was passed to `inc`. If the value is the same, then the value returned by `inc` is stored in `counter` and the lock is released. Otherwise, the lock is released, and the strategy is retried from the beginning.
 
-> 在这里，swap!所采用的策略是传统的比较+替换算法。即先读取 counter 变量的值，再将其传入 inc 函数。然后当 inc 函数返回时，将原先用锁保护起来的 counter 值与传入 inc 时的值进行比较。如果两边的值一致，则将 inc 函数返回的值存入 counter，释放锁。否则，先释放锁，再从头进行重试。
+> 在这里，`swap!` 所采用的策略是传统的比较+替换算法。即先读取 `counter` 变量的值，再将其传入 `inc` 函数。然后当 `inc` 函数返回时，将原先用锁保护起来的 `counter` 值与传入 `inc` 时的值进行比较。如果两边的值一致，则将 `inc` 函数返回的值存入 `counter`，释放锁。否则，先释放锁，再从头进行重试。
 
-The atom facility is adequate for simple applications. Unfortunately, it cannot completely safeguard against concurrent updates and deadlocks when multiple dependent variables come into play. In those instances, more elaborate facilities can be used.
+The `atom` facility is adequate for simple applications. Unfortunately, it cannot completely safeguard against concurrent updates and deadlocks when multiple dependent variables come into play. In those instances, more elaborate facilities can be used.
 
-> 当然，atom 这个机制只适用于上面这种简单的应用程序，它并不适用于解决由多个相关变量同时需要更改所引发的并发更新问题和死锁问题，要想解决这些问题，我们就需要用到更复杂的机制。
+> 当然，`atom` 这个机制只适用于上面这种简单的应用程序，它并不适用于解决由多个相关变量同时需要更改所引发的并发更新问题和死锁问题，要想解决这些问题，我们就需要用到更复杂的机制。
 
 The point is that well-structured applications will be segregated into those components that do not mutate variables and those that do. This kind of segregation is supported by the use of appropriate disciplines to protect those mutated variables.
 
@@ -177,11 +177,13 @@ But perhaps we don’t have to make the scheme work forever. And perhaps we have
 
 > 但是可能我们并不需要这个设计永远可行，而且可能在整个程序的生命周期内，我们有足够的存储和处理能力来满足它。
 
-This is the idea behind event sourcing.2 Event sourcing is a strategy wherein we store the transactions, but not the state. When state is required, we simply apply all the transactions from the beginning of time.
+This is the idea behind event sourcing.[<sup>2</sup>](#footnote-2) Event sourcing is a strategy wherein we store the transactions, but not the state. When state is required, we simply apply all the transactions from the beginning of time.
 
-> 这就是事件溯源，在这种体系下，我们只存储事务记录，不存储具体状态。当需要具体状态时，我们只要从头开始计算所有的事务即可。
+> 这就是事件溯源。[<sup>2</sup>](#footnote-2)在这种体系下，我们只存储事务记录，不存储具体状态。当需要具体状态时，我们只要从头开始计算所有的事务即可。
 
 Of course, we can take shortcuts. For example, we can compute and save the state every midnight. Then, when the state information is required, we need compute only the transactions since midnight.
+
+> 当然，我们可以用一些便捷的办法。比如说，计算出每天午夜 0 时的状态并存出起来。之后，如果需要一个当时的状态，我们只需要从今天午夜 0 时的状态和之后的事务来计算就可以了。
 
 Now consider the data storage required for this scheme: We would need a lot of it. Realistically, offline data storage has been growing so fast that we now consider trillions of bytes to be small—so we have a lot of it.
 
@@ -230,3 +232,17 @@ With that realization, we have to face an unwelcome fact: Software is not a rapi
 Software—the stuff of computer programs—is composed of sequence, selection, iteration, and indirection. Nothing more. Nothing less.
 
 > 总而言之，软件，或者说计算机程序无一例外是由顺序结构、分支结构、循环结构和间接转移这几种行为组合而成的，无可增加，也缺一不可。
+
+<a name="footnote-1">&nbsp;</a>
+
+<br />
+
+---
+
+#### <sup>1</sup><a name="footnote-2"></a> I know... What's a disk?
+
+> 我知道…… 磁盘是啥？
+
+#### <sup>2</sup> Thanks to Greg Young for teaching me about this concept.
+
+> 多谢 Greg Young 教会我这个概念。
