@@ -68,6 +68,13 @@ The chapters that follow describe each principle more thoroughly. Here is the ex
 > - DIP：依赖反转原则。
 >   该设计原则指出高层策略性的代码不应该依赖实现底层细节的代码，恰恰相反，那些实现底层细节的代码应该依赖高层策略性的代码。
 
-These principles have been described in detail in many different publications1 over the years. The chapters that follow will focus on the architectural implications of these principles instead of repeating those detailed discussions. If you are not already familiar with these principles, what follows is insufficient to understand them in detail and you would be well advised to study them in the footnoted documents.
+These principles have been described in detail in many different publications1 over the years. The chapters that follow will focus on the architectural implications of these principles instead of repeating those detailed discussions. If you are not already familiar with these principles, what follows is insufficient to understand them in detail and you would be well advised to study them in the footnoted documents.[<sup>1</sup>](#footnote-1)
 
-> 这些年来，这些设计原则在很多不同的出版物中都有过详细描述。在接下来的章节中，我们将会主要关注这些原则在软件架构上的意义，而不再重复其细节信息。如果你对这些原则并不是特别了解，那么我建议你先通过脚注中的文档熟悉一下它们，否则接下来的章节可能有点难以理解。
+> 这些年来，这些设计原则在很多不同的出版物中都有过详细描述。在接下来的章节中，我们将会主要关注这些原则在软件架构上的意义，而不再重复其细节信息。如果你对这些原则并不是特别了解，那么我建议你先通过脚注中的文档熟悉一下它们[<sup>1</sup>](#footnote-1)，否则接下来的章节可能有点难以理解。
+
+<a name="footnote-1">&nbsp;</a>
+
+<br />
+
+--- 
+#### <sup>1</sup> For example, _Agile Software Development, Principles, Patterns, and Practices_, Robert C. Martin, Prentice Hall, 2002, [http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod](http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod), [https://en.wikipedia.org/wiki/SOLID](https://en.wikipedia.org/wiki/SOLID).
