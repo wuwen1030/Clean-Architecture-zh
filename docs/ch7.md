@@ -108,7 +108,7 @@ It’s not hard to imagine that merges will be common in source files that conta
 
 > 一个拥有很多函数的源代码文件必然会经历很多次代码合并，该文件中的这些函数分别服务不同行为者的情况就更常见了。
 
-For example, suppose that the CTO’s team of DBAs decides that there should be a simple schema change to the `Employe`e table of the database. Suppose also that the COO’s team of HR clerks decides that they need a change in the format of the hours report.
+For example, suppose that the CTO’s team of DBAs decides that there should be a simple schema change to the `Employee` table of the database. Suppose also that the COO’s team of HR clerks decides that they need a change in the format of the hours report.
 
 > 例如，CTO 团队的 DBA 决定要对 `Employee` 数据库表结构进行简单修改。与此同时，COO 团队的 HR 需要修改工作时数报表的格式。
 
