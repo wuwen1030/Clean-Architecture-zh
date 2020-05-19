@@ -397,7 +397,7 @@ With this approach, software architects working in systems written in OO languag
 
 That is power! That is the power that OO provides. That’s what OO is really all about - at least from the architect’s point of view.
 
-> 这就是面向对象编程的好处，同时也是面向对象编程这种范式的核心本质至少对一个软件架构师来说是这样的。
+> 这就是面向对象编程的好处，同时也是面向对象编程这种范式的核心本质，至少对一个软件架构师来说是这样的。
 
 What can you do with that power? As an example, you can rearrange the source code dependencies of your system so that the database and the user interface (UI) depend on the business rules (Figure 5.3), rather than the other way around.
 
