@@ -6,9 +6,9 @@ In 1988, Barbara Liskov wrote the following as a way of defining subtypes.
 
 > 1988 年，Barbara Liskov 在描述如何定义子类型时写下了这样一段话：
 
-What is wanted here is something like the following substitution property: If for each object o1 of type S there is an object o2 of type T such that for all programs P defined in terms of T, the behavior of P is unchanged when o1 is substituted for o2 then S is a subtype of T.1
+What is wanted here is something like the following substitution property: If for each object o1 of type S there is an object o2 of type T such that for all programs P defined in terms of T, the behavior of P is unchanged when o1 is substituted for o2 then S is a subtype of T.[<sup>1</sup>](#foornote-1)
 
-> 这里需要的是一种可替换性：如果对于每个类型是 S 的对象 o1 都存在一个类型为 T 的对象 o2，能使操作 T 类型的程序 P 在用 o2 替换 o1 时行为保持不变，我们就可以将 S 称为 T 的子类型。
+> 这里需要的是一种可替换性：如果对于每个类型是 S 的对象 o1 都存在一个类型为 T 的对象 o2，能使操作 T 类型的程序 P 在用 o2 替换 o1 时行为保持不变，我们就可以将 S 称为 T 的子类型。[<sup>1</sup>](#foornote-1)
 
 To understand this idea, which is known as the Liskov Substitution Principle (LSP), let’s look at some examples.
 
@@ -16,15 +16,15 @@ To understand this idea, which is known as the Liskov Substitution Principle (LS
 
 ## GUIDING THE USE OF INHERITANCE 继承的使用指导
 
-Imagine that we have a class named License, as shown in Figure 9.1. This class has a method named calcFee(), which is called by the Billing application. There are two “subtypes” of License: PersonalLicense and BusinessLicense. They use different algorithms to calculate the license fee.
+Imagine that we have a class named `License`, as shown in Figure 9.1. This class has a method named `calcFee()`, which is called by the `Billing` application. There are two “subtypes” of `License`: `PersonalLicense` and `BusinessLicense`. They use different algorithms to calculate the license fee.
 
-> 假设我们有一个 License 类，其结构如图 9.1 所示。该类中有一个名为 calcFee() 的方法，该方法将由 Billing 应用程序来调用。而 License 类有两个“子类型”：PersonalLicense 与 BusinessLicense，这两个类会用不同的算法来计算授权费用。
+> 假设我们有一个 `License` 类，其结构如图 9.1 所示。该类中有一个名为 `calcFee()` 的方法，该方法将由 `Billing` 应用程序来调用。而 `License` 类有两个“子类型”：`PersonalLicense` 与 `BusinessLicense`，这两个类会用不同的算法来计算授权费用。
 
-<Figures figure="9-1">License, and its derivatives, conform to LSP</Figures>
+<Figures figure="9-1">`License`, and its derivatives, conform to LSP</Figures>
 
-This design conforms to the LSP because the behavior of the Billing application does not depend, in any way, on which of the two subtypes it uses. Both of the subtypes are substitutable for the License type.
+This design conforms to the LSP because the behavior of the `Billing` application does not depend, in any way, on which of the two subtypes it uses. Both of the subtypes are substitutable for the `License` type.
 
-> 上述设计是符合 LSP 原则的，因为 Billing 应用程序的行为并不依赖于其使用的任何一个衍生类。也就是说，这两个衍生类的对象都是可以用来替换 License 类对象的。
+> 上述设计是符合 LSP 原则的，因为 `Billing` 应用程序的行为并不依赖于其使用的任何一个衍生类。也就是说，这两个衍生类的对象都是可以用来替换 `License` 类对象的。
 
 ## THE SQUARE/RECTANGLE PROBLEM 正方形/长方形问题
 
@@ -34,9 +34,9 @@ The canonical example of a violation of the LSP is the famed (or infamous, depen
 
 <Figures figure="9-2">The infamous square/rectangle problem</Figures>
 
-In this example, Square is not a proper subtype of Rectangle because the height and width of the Rectangle are independently mutable; in contrast, the height and width of the Square must change together. Since the User believes it is communicating with a Rectangle, it could easily get confused. The following code shows why:
+In this example, `Square` is not a proper subtype of `Rectangle` because the height and width of the `Rectangle` are independently mutable; in contrast, the height and width of the `Square` must change together. Since the `User` believes it is communicating with a `Rectangle`, it could easily get confused. The following code shows why:
 
-> 在这个案例中，Square 类并不是 Rectangle 类的子类型，因为 Rectangle 类的高和宽可以分别修改，而 Square 类的高和宽则必须一同修改。由于 User 类 始终认为自己在操作 Rectangle 类，因此会带来一些混淆。例如在下面的代码中：
+> 在这个案例中，`Square` 类并不是 `Rectangle` 类的子类型，因为 `Rectangle` 类的高和宽可以分别修改，而 `Square` 类的高和宽则必须一同修改。由于 `User` 类 始终认为自己在操作 `Rectangle` 类，因此会带来一些混淆。例如在下面的代码中：
 
 ```java
 Rectangle r = …
@@ -45,13 +45,13 @@ r.setH(2);
 assert(r.area() == 10);
 ```
 
-If the … code produced a Square, then the assertion would fail.
+If the … code produced a `Square`, then the assertion would fail.
 
-> 很显然，如果上述代码在…处返回的是 Square 类，则最后的这个 assert 是不会成立的。
+> 很显然，如果上述代码在…处返回的是 `Square` 类，则最后的这个 assert 是不会成立的。
 
-The only way to defend against this kind of LSP violation is to add mechanisms to the User (such as an if statement) that detects whether the Rectangle is, in fact, a Square. Since the behavior of the User depends on the types it uses, those types are not substitutable.
+The only way to defend against this kind of LSP violation is to add mechanisms to the `User` (such as an `if` statement) that detects whether the `Rectangle` is, in fact, a `Square`. Since the behavior of the `User` depends on the types it uses, those types are not substitutable.
 
-> 如果想要防范这种违反 LSP 的行为，唯一的办法就是在 user 类中增加用于区分 Rectangle 和 Square 的检测逻辑（例如增加 if 语句）。但这样一来，user 为的行为又将依赖于它所使用的类，这两个类就不能互相替换了。
+> 如果想要防范这种违反 LSP 的行为，唯一的办法就是在 `User` 类中增加用于区分 `Rectangle` 和 `Square` 的检测逻辑（例如增加 `if` 语句）。但这样一来，`User` 为的行为又将依赖于它所使用的类，这两个类就不能互相替换了。
 
 ## LSP AND ARCHITECTURE LSP 与软件架构
 
@@ -100,21 +100,21 @@ purplecab.com/driver/Bob
        /destination/ORD
 ```
 
-Clearly, this means that all the dispatch services, for all the different companies, must conform to the same REST interface. They must treat the pickupAddress, pickupTime, and destination fields identically.
+Clearly, this means that all the dispatch services, for all the different companies, must conform to the same REST interface. They must treat the `pickupAddress`, `pickupTime`, and `destination` fields identically.
 
-> 很显然，这意味着所存参与该调度服务的公司都必须遵守同样的 REST 接口，它们必须用同样的方式处理 pickupAddress、pickupTime 和 destination 字段。
+> 很显然，这意味着所存参与该调度服务的公司都必须遵守同样的 REST 接口，它们必须用同样的方式处理 `pickupAddress`、`pickupTime` 和 `destination` 字段。
 
-Now suppose the Acme taxi company hired some programmers who didn’t read the spec very carefully. They abbreviated the destination field to just dest. Acme is the largest taxi company in our area, and Acme’s CEO’s ex-wife is our CEO’s new wife, and … Well, you get the picture. What would happen to the architecture of our system?
+Now suppose the Acme taxi company hired some programmers who didn’t read the spec very carefully. They abbreviated the `destination` field to just `dest`. Acme is the largest taxi company in our area, and Acme’s CEO’s ex-wife is our CEO’s new wife, and … Well, you get the picture. What would happen to the architecture of our system?
 
-> 接下来，我们再假设 Acme 出租车公司现在招聘的程序员由于没有仔细阅读上述接口定义，结果将 destination 字段缩写成了 dest。而 Acme 又是本地最大的出租车公司，另外，Acme CEO 的前妻不巧还是我们 CEO 的新欢……你懂的！这这会对系统的架构造成什么影响呢？
+> 接下来，我们再假设 Acme 出租车公司现在招聘的程序员由于没有仔细阅读上述接口定义，结果将 `destination` 字段缩写成了 `dest`。而 Acme 又是本地最大的出租车公司，另外，Acme CEO 的前妻不巧还是我们 CEO 的新欢……你懂的！这这会对系统的架构造成什么影响呢？
 
 Obviously, we would need to add a special case. The dispatch request for any Acme driver would have to be constructed using a different set of rules from all the other drivers.
 
 > 显然，我们需要为系统增加一类特殊用例，以应对 Acme 司机的调度请求。这必须要用另外一套规则来构建。
 
-The simplest way to accomplish this goal would be to add an if statement to the module that constructed the dispatch command:
+The simplest way to accomplish this goal would be to add an `if` statement to the module that constructed the dispatch command:
 
-> 最简单的做法当然是增加一条 if 语句：
+> 最简单的做法当然是增加一条 `if` 语句：
 
 ```java
 if (driver.getDispatchUri().startsWith("acme.com"))…
@@ -132,10 +132,10 @@ Our architect would have to insulate the system from bugs like this by creating 
 
 > 软件架构师应该创建一个调度请求创建组件，并让该组件使用一个配置数据库来保存 URI 组装格式，这样的方式可以保护系统不受外界因素变化的影响。例如其配置信息可以如下：
 
-| URI      | Dispatch Format                                |
-| -------- | ---------------------------------------------- |
-| Acme.com | /pickupAddress/%s/pickupTime/%s/dest/%s        |
-| `*.*`    | /pickupAddress/%s/pickupTime/%s/destination/%s |
+| URI        | Dispatch Format                                  |
+| ---------- | ------------------------------------------------ |
+| `Acme.com` | `/pickupAddress/%s/pickupTime/%s/dest/%s`        |
+| `*.*`      | `/pickupAddress/%s/pickupTime/%s/destination/%s` |
 
 And so our architect has had to add a significant and complex mechanism to deal with the fact that the interfaces of the restful services are not all substitutable.
 
@@ -146,3 +146,11 @@ And so our architect has had to add a significant and complex mechanism to deal 
 The LSP can, and should, be extended to the level of architecture. A simple violation of substitutability, can cause a system’s architecture to be polluted with a significant amount of extra mechanisms.
 
 > LSP 可以且应该被应用于软件架构层面，因为一旦违背了可替换也该系统架构就不得不为此增添大量复杂的应对机制。
+
+<a name="footnote-1">&nbsp;</a>
+
+<br />
+
+---
+
+#### <sup>1</sup> Barbara Liskov, “Data Abstraction and Hierarchy,” _SIGPLAN Notices_ 23, 5 (May 1988).
