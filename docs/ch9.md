@@ -6,9 +6,9 @@ In 1988, Barbara Liskov wrote the following as a way of defining subtypes.
 
 > 1988 年，Barbara Liskov 在描述如何定义子类型时写下了这样一段话：
 
-What is wanted here is something like the following substitution property: If for each object o1 of type S there is an object o2 of type T such that for all programs P defined in terms of T, the behavior of P is unchanged when o1 is substituted for o2 then S is a subtype of T.[<sup>1</sup>](#foornote-1)
+What is wanted here is something like the following substitution property: If for each object o1 of type S there is an object o2 of type T such that for all programs P defined in terms of T, the behavior of P is unchanged when o1 is substituted for o2 then S is a subtype of T.[<sup>1</sup>](#footnote-1)
 
-> 这里需要的是一种可替换性：如果对于每个类型是 S 的对象 o1 都存在一个类型为 T 的对象 o2，能使操作 T 类型的程序 P 在用 o2 替换 o1 时行为保持不变，我们就可以将 S 称为 T 的子类型。[<sup>1</sup>](#foornote-1)
+> 这里需要的是一种可替换性：如果对于每个类型是 S 的对象 o1 都存在一个类型为 T 的对象 o2，能使操作 T 类型的程序 P 在用 o2 替换 o1 时行为保持不变，我们就可以将 S 称为 T 的子类型。[<sup>1</sup>](#footnote-1)
 
 To understand this idea, which is known as the Liskov Substitution Principle (LSP), let’s look at some examples.
 
@@ -51,13 +51,13 @@ If the … code produced a `Square`, then the assertion would fail.
 
 The only way to defend against this kind of LSP violation is to add mechanisms to the `User` (such as an `if` statement) that detects whether the `Rectangle` is, in fact, a `Square`. Since the behavior of the `User` depends on the types it uses, those types are not substitutable.
 
-> 如果想要防范这种违反 LSP 的行为，唯一的办法就是在 `User` 类中增加用于区分 `Rectangle` 和 `Square` 的检测逻辑（例如增加 `if` 语句）。但这样一来，`User` 为的行为又将依赖于它所使用的类，这两个类就不能互相替换了。
+> 想要避免违反 LSP 行为的唯一的办法就是在 `User` 类中增加用于区分 `Rectangle` 和 `Square` 的检测逻辑（例如增加 `if` 语句）。但这样一来，`User` 类的行为又将依赖于它所使用的类，这两个类就不能互相替换了。
 
 ## LSP AND ARCHITECTURE LSP 与软件架构
 
 In the early years of the object-oriented revolution, we thought of the LSP as a way to guide the use of inheritance, as shown in the previous sections. However, over the years the LSP has morphed into a broader principle of software design that pertains to interfaces and implementations.
 
-> 在面向对象这场编程革命兴起的早期，我们的普遍认知正如上文所说，认为 LSP 只不过是指导如何使用继承关系的一种方法，然而随着时间的推移，LSP 逐渐演变成了一种更广泛的、指导接口与其实现方式的设计原则。
+> 在面向对象这场编程革命兴起的早期，我们的普遍认知正如上文所说，认为 LSP 只不过是指导如何使用继承关系的一种方法。然而随着时间的推移，LSP 逐渐演变成了一种更广泛的、指导接口与其实现方式的设计原则。
 
 The interfaces in question can be of many forms. We might have a Java-style interface, implemented by several classes. Or we might have several Ruby classes that share the same method signatures. Or we might have a set of services that all respond to the same REST interface.
 
