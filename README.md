@@ -89,6 +89,7 @@ yarn docs:dev
     <td align="center"><a href="https://github.com/latavin243"><img src="https://avatars0.githubusercontent.com/u/16208315?s=460&u=c4a46e233583bc687fa59c863dd0f144e9f5664b&v=4" width="100px;" /><br /><sub><b>qguo</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/oldfatcrab"><img src="https://avatars2.githubusercontent.com/u/1563274?s=460&v=4" width="100px;" /><br /><sub><b>oldfatcrab</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/venthent"><img src="https://avatars2.githubusercontent.com/u/35421630?s=460&u=753b74ddd9c7df2bfa9c0833dccd821e15baac42&v=4" width="100px;" /><br /><sub><b>venthent</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/ZhuPeng"><img src="https://avatars1.githubusercontent.com/u/4994339?s=460&u=5d9b3258f58b4e8df6e8906cee02a7529df3fa50&v=4" width="100px;" /><br /><sub><b>ZhuPeng</b></sub></a><br /></td>
   </tr>
 </table>
 
