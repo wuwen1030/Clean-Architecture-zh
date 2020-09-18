@@ -190,7 +190,7 @@ The developers may think that the answer is to start over from scratch and redes
 
 Their overconfidence will drive the redesign into the same mess as the original project.
 
-> 那么，我们有什么理由认为让他们从头第 1 章设计与架构究竟是什么过度自信只会使得重构设计陷入和原项目一样的困局中。
+> 这种过度自信只会把重新设计陷入和原项目一样的困局中。
 
 ## CONCLUSION 本章小结
 
