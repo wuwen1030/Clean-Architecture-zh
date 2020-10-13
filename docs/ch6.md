@@ -4,7 +4,7 @@
 
 In many ways, the concepts of functional programming predate programming itself. This paradigm is strongly based on the λ-calculus invented by Alonzo Church in the 1930s.
 
-> 函数式编程所依赖的原理，在很多方而其实是早于编程本身出现的。因为函数式编程这种范式强烈依赖于 Alonzo Church 在 20 世纪 30 年代发明的 λ 演算。
+> 函数式编程所依赖的原理，在很多方面其实是早于编程本身出现的。因为函数式编程这种范式强烈依赖于 Alonzo Church 在 20 世纪 30 年代发明的 λ 演算。
 
 ## SQUARES OF INTEGERS 整数平方
 
