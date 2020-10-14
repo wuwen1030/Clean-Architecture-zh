@@ -48,7 +48,7 @@ That word “cohesive” implies the SRP. Cohesion is the force that binds toget
 
 Perhaps the best way to understand this principle is by looking at the symptoms of violating it.
 
-> 或许，理解这个设计原则最好的办法就是计大家来看一些反面案例。
+> 或许，理解这个设计原则最好的办法就是让大家来看一些反面案例。
 
 ## SYMPTOM 1: ACCIDENTAL DUPLICATION 反面案例 1：重复的假象
 
